@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Dominio
 {
     public class Price
     {
-        public int PriceId { get; set; }
+        public Guid PriceId { get; set; }
+        [Column(TypeName = "decimal(18,4)")]
         public decimal ActualPrice { get; set; }
+        [Column(TypeName = "decimal(18,4)")]
         public decimal Offer { get; set; }
-        public int CourseId { get; set; }
+        public Guid CourseId { get; set; }
         public Course Course { get; set; }
     }
 }

@@ -7,8 +7,8 @@ namespace Dominio
 {
     public class CourseTeacher
     {
-        public int CourseId { get; set; }
-        public int TeacherId { get; set; }
+        public Guid CourseId { get; set; }
+        public Guid TeacherId { get; set; }
         public Teacher Teacher { get; set; }
         public Course Course { get; set; }
     }

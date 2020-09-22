@@ -1,9 +1,10 @@
 ﻿using Dominio;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistencia
 {
-    public class CoursesContext : DbContext
+    public class CoursesContext : IdentityDbContext<User>
     {
 
         public DbSet<Comment> Comment { get; set; }
@@ -16,6 +17,7 @@ namespace Persistencia
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<CourseTeacher>().HasKey(pk => new { pk.TeacherId, pk.CourseId });
         }
     }
