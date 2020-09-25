@@ -1,5 +1,7 @@
 using System;
+using Dominio;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -20,7 +22,9 @@ namespace WebAPI
 
                 try
                 {
+                    var userManager = services.GetRequiredService<UserManager<User>>();
                     var context = services.GetRequiredService<CoursesContext>();
+                    TestData.InsertData(context, userManager).Wait();
                     context.Database.Migrate();
                 }
                 catch (Exception ex)

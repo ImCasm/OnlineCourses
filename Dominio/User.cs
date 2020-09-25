@@ -9,6 +9,5 @@ namespace Dominio
     public class User : IdentityUser
     {
         public string fullName { get; set; }
-
     }
 }
