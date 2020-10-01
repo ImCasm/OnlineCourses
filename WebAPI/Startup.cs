@@ -1,4 +1,5 @@
 using Aplicacion.Courses;
+using Aplicacion.Interfaces;
 using Dominio;
 using FluentValidation.AspNetCore;
 using MediatR;
@@ -12,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Persistencia;
+using Security;
 using WebAPI.Middleware;
 
 namespace WebAPI
@@ -51,6 +53,9 @@ namespace WebAPI
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequiredLength = 4;
             });
+
+            // JWT
+            services.AddScoped<IJwtGenerator, JwtGenerator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

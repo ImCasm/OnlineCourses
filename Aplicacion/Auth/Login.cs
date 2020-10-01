@@ -1,4 +1,5 @@
 ﻿using Aplicacion.ExceptionHandlers;
+using Aplicacion.Interfaces;
 using Dominio;
 using FluentValidation;
 using MediatR;
@@ -31,11 +32,13 @@ namespace Aplicacion.Auth
         {
             private readonly UserManager<User> _userManager;
             private readonly SignInManager<User> _signInManager;
+            private readonly IJwtGenerator _jwtGenerator;
 
-            public Handler(UserManager<User> userManager, SignInManager<User> signInManager)
+            public Handler(UserManager<User> userManager, SignInManager<User> signInManager, IJwtGenerator jwtGenerator)
             {
                 _userManager = userManager;
                 _signInManager = signInManager;
+                _jwtGenerator = jwtGenerator;
             }
 
             public async Task<AuthUserData> Handle(Run request, CancellationToken cancellationToken)
@@ -56,7 +59,7 @@ namespace Aplicacion.Auth
                         FullName = user.fullName,
                         Email = user.Email,
                         Username = user.UserName,
-                        Token = null,
+                        Token = _jwtGenerator.CreateToken(user),
                         Image = null
                     };
                 }
