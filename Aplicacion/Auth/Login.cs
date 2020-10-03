@@ -56,7 +56,7 @@ namespace Aplicacion.Auth
                 if (successLogIn.Succeeded)
                 {
                     return new AuthUserData{ 
-                        FullName = user.fullName,
+                        FullName = user.FullName,
                         Email = user.Email,
                         Username = user.UserName,
                         Token = _jwtGenerator.CreateToken(user),

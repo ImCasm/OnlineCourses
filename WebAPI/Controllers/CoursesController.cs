@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Courses;
 using Dominio;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -11,8 +12,8 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CoursesController : MyBaseController
     {
-
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<Course>>> Get()
         {
             return await _mediator.Send(new Query.CoursesList());

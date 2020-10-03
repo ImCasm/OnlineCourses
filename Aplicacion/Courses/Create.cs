@@ -47,7 +47,6 @@ namespace Aplicacion.Courses
                     Title = request.Title,
                     Description = request.Description,
                     PublicationDate = request.PublicationDate
-
                 };
 
                 this._context.Course.Add(course);

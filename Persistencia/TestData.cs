@@ -12,7 +12,7 @@ namespace Persistencia
         {
             if (!userManager.Users.Any())
             {
-                var user = new User { fullName = "Cristian Sánchez", UserName = "admin", Email = "admin@gmail.com" };
+                var user = new User { FullName = "Cristian Sánchez", UserName = "admin", Email = "admin@gmail.com" };
                 await userManager.CreateAsync(user, "admin");
             }
         }
