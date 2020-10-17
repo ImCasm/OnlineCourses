@@ -2,17 +2,18 @@
 using MediatR;
 using Persistencia;
 using System;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Aplicacion.Courses
+namespace Aplicacion.Courses.CQRS
 {
     public class Delete
     {
         public class DeleteCourse : IRequest
         {
-            public int Id { get; set; }
+            public Guid CourseId { get; set; }
         }
 
         public class Handler : IRequestHandler<DeleteCourse>
@@ -26,7 +27,10 @@ namespace Aplicacion.Courses
 
             public async Task<Unit> Handle(DeleteCourse request, CancellationToken cancellationToken)
             {
-                var course = await _context.Course.FindAsync(request.Id);
+
+                //var priceCourse = _context.Price.Where(prc => prc.CourseId == request.CourseId);
+
+                var course = await _context.Course.FindAsync(request.CourseId);
 
                 if (course == null)
                 {

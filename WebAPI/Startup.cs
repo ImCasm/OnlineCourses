@@ -1,5 +1,7 @@
 using Aplicacion.Courses;
+using Aplicacion.Courses.CQRS;
 using Aplicacion.Interfaces;
+using AutoMapper;
 using Dominio;
 using FluentValidation.AspNetCore;
 using MediatR;
@@ -63,6 +65,8 @@ namespace WebAPI
                 options.Password.RequiredLength = 4;
             });
 
+            //Mapper
+            services.AddAutoMapper(typeof(Query.Handler));
             // JWT
             services.AddScoped<IJwtGenerator, JwtGenerator>();
             services.AddScoped<IUserSession, UserSession>();
