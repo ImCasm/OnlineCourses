@@ -1,14 +1,14 @@
-﻿using Aplicacion.Courses.DTO;
+﻿using Application.Courses.DTO;
 using AutoMapper;
-using Dominio;
+using Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Persistencia;
+using Persistence;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Aplicacion.Courses.CQRS
+namespace Application.Courses.Commands
 {
     public class Query
     {

@@ -1,11 +1,11 @@
-﻿using Aplicacion.Interfaces;
-using Dominio;
+﻿using Application.Interfaces;
+using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Aplicacion.Auth
+namespace Application.Auth
 {
     public class CurrentUser
     {

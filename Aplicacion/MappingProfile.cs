@@ -1,10 +1,10 @@
-﻿using Aplicacion.Courses.DTO;
+﻿using Application.Courses.DTO;
 using AutoMapper;
-using Dominio;
+using Domain;
 using System;
 using System.Linq;
 
-namespace Aplicacion
+namespace Application
 {
     public class MappingProfile : Profile
     {

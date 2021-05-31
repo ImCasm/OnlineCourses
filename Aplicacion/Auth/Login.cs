@@ -1,6 +1,6 @@
-﻿using Aplicacion.ExceptionHandlers;
-using Aplicacion.Interfaces;
-using Dominio;
+﻿using Application.ExceptionHandlers;
+using Application.Interfaces;
+using Domain;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -8,7 +8,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Aplicacion.Auth
+namespace Application.Auth
 {
     public class Login
     {

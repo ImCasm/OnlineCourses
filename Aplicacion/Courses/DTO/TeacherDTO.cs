@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Aplicacion.Courses.DTO
+namespace Application.Courses.DTO
 {
     public class TeacherDTO
     {

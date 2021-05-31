@@ -1,13 +1,13 @@
-﻿using Aplicacion.ExceptionHandlers;
+﻿using Application.ExceptionHandlers;
 using MediatR;
-using Persistencia;
+using Persistence;
 using System;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Aplicacion.Courses.CQRS
+namespace Application.Courses.Commands
 {
     public class Delete
     {

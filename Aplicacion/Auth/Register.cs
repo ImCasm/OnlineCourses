@@ -1,19 +1,19 @@
 ﻿
-using Aplicacion.ExceptionHandlers;
-using Aplicacion.Interfaces;
-using Dominio;
+using Application.ExceptionHandlers;
+using Application.Interfaces;
+using Domain;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Persistencia;
+using Persistence;
 using System;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Aplicacion.Auth
+namespace Application.Auth
 {
     public class Register
     {

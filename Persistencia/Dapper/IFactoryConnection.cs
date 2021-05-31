@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Persistencia.Dapper
+namespace Persistence.Dapper
 {
     public interface IFactoryConnection
     {

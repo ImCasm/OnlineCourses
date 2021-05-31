@@ -1,9 +1,9 @@
-﻿using Dominio;
+﻿using Domain;
 using Microsoft.AspNetCore.Identity;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Persistencia
+namespace Persistence
 {
     public class TestData
     {

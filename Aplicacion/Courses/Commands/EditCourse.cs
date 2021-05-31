@@ -1,16 +1,16 @@
 ﻿using MediatR;
-using Persistencia;
+using Persistence;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentValidation;
-using Aplicacion.ExceptionHandlers;
+using Application.ExceptionHandlers;
 using System.Net;
 using System.Collections.Generic;
 using System.Linq;
-using Dominio;
+using Domain;
 
-namespace Aplicacion.Courses.CQRS
+namespace Application.Courses.Commands
 {
     public class EditCourse
     {

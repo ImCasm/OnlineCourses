@@ -1,8 +1,8 @@
-﻿using Dominio;
+﻿using Domain;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Persistencia
+namespace Persistence
 {
     public class CoursesContext : IdentityDbContext<User>
     {

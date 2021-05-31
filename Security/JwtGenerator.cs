@@ -1,5 +1,5 @@
-﻿using Aplicacion.Interfaces;
-using Dominio;
+﻿using Application.Interfaces;
+using Domain;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;

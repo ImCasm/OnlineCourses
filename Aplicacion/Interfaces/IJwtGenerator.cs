@@ -1,6 +1,6 @@
-﻿using Dominio;
+﻿using Domain;
 
-namespace Aplicacion.Interfaces
+namespace Application.Interfaces
 {
     public interface IJwtGenerator
     {

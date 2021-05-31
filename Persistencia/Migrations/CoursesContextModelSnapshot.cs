@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Persistencia;
+using Persistence;
 
-namespace Persistencia.Migrations
+namespace Persistence.Migrations
 {
     [DbContext(typeof(CoursesContext))]
     partial class CoursesContextModelSnapshot : ModelSnapshot

@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Dominio;
+using Domain;
 using FluentValidation;
 using MediatR;
-using Persistencia;
+using Persistence;
 
-namespace Aplicacion.Courses.CQRS
+namespace Application.Courses.Commands
 {
     public class Create
     {

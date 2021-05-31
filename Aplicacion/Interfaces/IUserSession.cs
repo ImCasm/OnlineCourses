@@ -1,5 +1,5 @@
 ﻿
-namespace Aplicacion.Interfaces
+namespace Application.Interfaces
 {
     public interface IUserSession
     {

@@ -1,4 +1,4 @@
-﻿namespace Persistencia.Dapper
+﻿namespace Persistence.Dapper
 {
     public class ConnectionConfig
     {

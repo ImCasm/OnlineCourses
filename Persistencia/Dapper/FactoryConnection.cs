@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-namespace Persistencia.Dapper
+namespace Persistence.Dapper
 {
     public class FactoryConnection : IFactoryConnection
     {

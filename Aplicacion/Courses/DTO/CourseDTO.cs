@@ -1,8 +1,8 @@
-﻿using Aplicacion.Courses.DTO;
+﻿using Application.Courses.DTO;
 using System;
 using System.Collections.Generic;
 
-namespace Aplicacion.Courses.DTO
+namespace Application.Courses.DTO
 {
     public class CourseDTO
     {

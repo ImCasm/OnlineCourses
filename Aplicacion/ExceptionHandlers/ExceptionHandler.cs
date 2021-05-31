@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Aplicacion.ExceptionHandlers
+namespace Application.ExceptionHandlers
 {
     public class ExceptionHandler : Exception
     {

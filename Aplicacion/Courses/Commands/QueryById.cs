@@ -1,16 +1,16 @@
-﻿using Aplicacion.Courses.DTO;
-using Aplicacion.ExceptionHandlers;
+﻿using Application.Courses.DTO;
+using Application.ExceptionHandlers;
 using AutoMapper;
-using Dominio;
+using Domain;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Persistencia;
+using Persistence;
 using System;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Aplicacion.Courses.CQRS
+namespace Application.Courses.Commands
 {
     public class QueryById
     {

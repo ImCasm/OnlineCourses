@@ -1,5 +1,5 @@
-﻿using Aplicacion.Courses.CQRS;
-using Aplicacion.Courses.DTO;
+﻿using Application.Courses.Commands;
+using Application.Courses.DTO;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
