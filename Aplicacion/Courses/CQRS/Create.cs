@@ -28,7 +28,6 @@ namespace Aplicacion.Courses.CQRS
             {
                 RuleFor(x => x.Title).NotEmpty();
                 RuleFor(x => x.Description).NotEmpty();
-                RuleFor(x => x.PublicationDate).NotEmpty();
                 RuleFor(x => x.Teachers).NotEmpty();
                 RuleFor(x => x.ActualPrice).NotEmpty();
                 RuleFor(x => x.OfferPrice).NotEmpty();
@@ -52,7 +51,7 @@ namespace Aplicacion.Courses.CQRS
                 {
                     Title = request.Title,
                     Description = request.Description,
-                    PublicationDate = request.PublicationDate,
+                    PublicationDate = request.PublicationDate ?? DateTime.Now,
                 };
 
                 var createdCourse = _context.Course.Add(course);

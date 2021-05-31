@@ -19,7 +19,7 @@
     },
     "WebAPI": {
       "commandName": "Project",
-      "launchBrowser": false,
+      "launchBrowser": true,
       "launchUrl": "api/courses",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {

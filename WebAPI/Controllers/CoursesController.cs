@@ -1,6 +1,7 @@
 ﻿using Aplicacion.Courses.CQRS;
 using Aplicacion.Courses.DTO;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

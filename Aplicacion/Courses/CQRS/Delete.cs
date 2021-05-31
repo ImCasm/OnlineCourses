@@ -28,7 +28,17 @@ namespace Aplicacion.Courses.CQRS
             public async Task<Unit> Handle(DeleteCourse request, CancellationToken cancellationToken)
             {
 
-                //var priceCourse = _context.Price.Where(prc => prc.CourseId == request.CourseId);
+                var comments = _context.Comment.Where(c => c.CourseId == request.CourseId);
+                foreach (var comment in comments)
+                {
+                    _context.Comment.Remove(comment);
+                }
+
+                var price = _context.Price.Where(prc => prc.CourseId == request.CourseId).FirstOrDefault();
+                if (price != null)
+                {
+                    _context.Price.Remove(price);
+                }
 
                 var course = await _context.Course.FindAsync(request.CourseId);
 

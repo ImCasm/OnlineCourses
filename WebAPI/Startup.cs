@@ -1,4 +1,3 @@
-using Aplicacion.Courses;
 using Aplicacion.Courses.CQRS;
 using Aplicacion.Interfaces;
 using AutoMapper;
@@ -19,6 +18,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Persistencia;
+using Persistencia.Dapper;
 using Security;
 using System.Text;
 using WebAPI.Middleware;
@@ -41,6 +41,8 @@ namespace WebAPI
             services.AddDbContext<CoursesContext> (options => {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.Configure<ConnectionConfig>(Configuration.GetSection("DefaultConnection"));
 
             services.AddMediatR(typeof(Query.Handler).Assembly);
             services.AddControllers(opt => {
