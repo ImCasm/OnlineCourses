@@ -19,6 +19,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Persistence;
 using Persistence.Dapper;
+using Persistence.Dapper.Teacher;
 using Security;
 using System.Text;
 using WebAPI.Middleware;
@@ -42,7 +43,8 @@ namespace WebAPI
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.Configure<ConnectionConfig>(Configuration.GetSection("DefaultConnection"));
+            services.AddOptions();
+            services.Configure<ConnectionConfig>(Configuration.GetSection("ConnectionStrings"));
 
             services.AddMediatR(typeof(Query.Handler).Assembly);
             services.AddControllers(opt => {
@@ -72,6 +74,9 @@ namespace WebAPI
             // JWT
             services.AddScoped<IJwtGenerator, JwtGenerator>();
             services.AddScoped<IUserSession, UserSession>();
+            // Repository 
+            services.AddTransient<IFactoryConnection, FactoryConnection>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi llave secreta"));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt => {

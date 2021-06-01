@@ -17,6 +17,10 @@
 		<ProjectReference Include="..\Dominio\Domain.csproj" />
 		<ProjectReference Include="..\Persistencia\Persistence.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="NewFolder\" />
+	</ItemGroup>
 	
 </Project>
 
