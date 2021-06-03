@@ -14,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Aplicacion\Application.csproj" />
-    <ProjectReference Include="..\Persistencia\Persistence.csproj" />
+    <ProjectReference Include="..\Persistence\Persistence.csproj" />
     <ProjectReference Include="..\Security\Security.csproj" />
   </ItemGroup>
 

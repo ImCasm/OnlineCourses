@@ -14,12 +14,12 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Dominio\Domain.csproj" />
-		<ProjectReference Include="..\Persistencia\Persistence.csproj" />
+	  <Folder Include="NewFolder\" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="NewFolder\" />
+	  <ProjectReference Include="..\Domain\Domain.csproj" />
+	  <ProjectReference Include="..\Persistence\Persistence.csproj" />
 	</ItemGroup>
 	
 </Project>
