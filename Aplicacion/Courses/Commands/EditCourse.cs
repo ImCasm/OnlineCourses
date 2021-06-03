@@ -61,6 +61,7 @@ namespace Application.Courses.Commands
                 course.Title = request.Title ?? course.Title;
                 course.Description = request.Description ?? course.Description;
                 course.PublicationDate = request.PublicationDate ?? course.PublicationDate;
+                course.CreationDate = DateTime.UtcNow;
 
                 /*Actualizar precio del curso*/
                 var coursePrice = _context.Price.

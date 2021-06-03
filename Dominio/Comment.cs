@@ -8,6 +8,7 @@ namespace Domain
         public string Student { get; set; }
         public int Review { get; set; }
         public string Content { get; set; }
+        public DateTime? CreationDate { get; set; }
         public Guid CourseId { get; set; } 
         public Course Course { get; set; }
     }

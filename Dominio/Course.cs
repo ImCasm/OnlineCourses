@@ -11,6 +11,7 @@ namespace Domain
         public DateTime? PublicationDate { get; set; }
         public byte[] Image { get; set; }
         public Price OfferPrice { get; set; }
+        public DateTime? CreationDate { get; set; }
         public ICollection<Comment> Comments { get; set; }
         public ICollection<CourseTeacher> Teachers { get; set; }
     }

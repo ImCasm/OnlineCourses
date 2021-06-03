@@ -51,7 +51,8 @@ namespace Application.Courses.Commands
                 {
                     Title = request.Title,
                     Description = request.Description,
-                    PublicationDate = request.PublicationDate ?? DateTime.Now,
+                    PublicationDate = request.PublicationDate ?? DateTime.UtcNow,
+                    CreationDate = DateTime.UtcNow
                 };
 
                 var createdCourse = _context.Course.Add(course);

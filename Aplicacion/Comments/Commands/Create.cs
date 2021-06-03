@@ -47,7 +47,8 @@ namespace Application.Comments.Commands
                     Student = request.Student,
                     Content = request.Content,
                     Review = request.Review,
-                    CourseId = request.CourseId
+                    CourseId = request.CourseId,
+                    CreationDate = DateTime.UtcNow
                 };
 
                 _context.Comment.Add(comment);

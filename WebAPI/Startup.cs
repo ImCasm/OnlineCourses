@@ -17,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using Persistence;
 using Persistence.Dapper;
 using Persistence.Dapper.Teacher;
@@ -78,6 +79,16 @@ namespace WebAPI
             services.AddTransient<IFactoryConnection, FactoryConnection>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
 
+            services.AddSwaggerGen(opt => {
+                opt.SwaggerDoc("v1", new OpenApiInfo {
+                    Title = "Servicios para mantenimiento de cursos",
+                    Version = "v1"
+                });
+                // Toma las clases que reciben los datos desde los controladores junto con el namespace
+                // para no confundirse al encontrar clases con el mismo nombre
+                opt.CustomSchemaIds(s => s.FullName);
+            });
+
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Mi llave secreta"));
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt => {
                 opt.TokenValidationParameters = new TokenValidationParameters
@@ -110,6 +121,11 @@ namespace WebAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+            app.UseSwaggerUI(opt => {
+                opt.SwaggerEndpoint("v1/swagger.json", "Cursos online v2");
             });
         }
     }

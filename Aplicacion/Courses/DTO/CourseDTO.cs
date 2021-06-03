@@ -13,6 +13,7 @@ namespace Application.Courses.DTO
         public byte[] Image { get; set; }
         public ICollection<TeacherDTO> Teachers { get; set; }
         public PriceDTO Price { get; set; }
+        public DateTime? CreationDate { get; set; }
         public List<CommentDTO> Comments { get; set; }
     }
 }

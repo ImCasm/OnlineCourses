@@ -8,6 +8,7 @@ namespace Persistence.Dapper.Teacher
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Grade { get; set; }
+        public DateTime? CreationDate { get; set; }
         public string JobTitle { get; set; }
     }
 }
