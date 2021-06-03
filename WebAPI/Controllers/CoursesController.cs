@@ -3,6 +3,7 @@ using Application.Courses.DTO;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Persistence.Dapper.Pagination;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -27,6 +28,12 @@ namespace WebAPI.Controllers
 
         [HttpPost]
         public async Task<ActionResult<Unit>> Create(Create.New data)
+        {
+            return await _mediator.Send(data);
+        }
+
+        [HttpPost("report")]
+        public async Task<ActionResult<Pagination>> Report(CoursePagination.Execute data)
         {
             return await _mediator.Send(data);
         }

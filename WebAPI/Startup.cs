@@ -20,6 +20,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Persistence;
 using Persistence.Dapper;
+using Persistence.Dapper.Pagination;
 using Persistence.Dapper.Teacher;
 using Security;
 using System.Text;
@@ -78,6 +79,7 @@ namespace WebAPI
             // Repository 
             services.AddTransient<IFactoryConnection, FactoryConnection>();
             services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<IPagination, PaginationRepository>();
 
             services.AddSwaggerGen(opt => {
                 opt.SwaggerDoc("v1", new OpenApiInfo {
