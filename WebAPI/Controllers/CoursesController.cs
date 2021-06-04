@@ -1,7 +1,6 @@
 ﻿using Application.Courses.Commands;
 using Application.Courses.DTO;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Persistence.Dapper.Pagination;
 using System;

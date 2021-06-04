@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Application.Auth;
+using Application.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace WebAPI.Controllers
 {
@@ -15,6 +12,6 @@ namespace WebAPI.Controllers
         private IMediator Mediator;
 
         protected IMediator _mediator => 
-            Mediator ?? (Mediator = HttpContext.RequestServices.GetService<IMediator>());       
+            Mediator ?? (Mediator = HttpContext.RequestServices.GetService<IMediator>());      
     }
 }

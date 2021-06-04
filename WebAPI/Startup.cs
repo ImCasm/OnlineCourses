@@ -22,7 +22,7 @@ using Persistence;
 using Persistence.Dapper;
 using Persistence.Dapper.Pagination;
 using Persistence.Dapper.Teacher;
-using Security;
+using Auth;
 using System.Text;
 using WebAPI.Middleware;
 
@@ -37,7 +37,6 @@ namespace WebAPI
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
 
@@ -52,13 +51,13 @@ namespace WebAPI
             services.AddControllers(opt => {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 opt.Filters.Add(new AuthorizeFilter(policy));
-            })
-                .AddFluentValidation(
-                config => config.RegisterValidatorsFromAssemblyContaining<Create>());
+            }).AddFluentValidation(config => config.RegisterValidatorsFromAssemblyContaining<Create>());
 
             //Auth con Identity
             var builder = services.AddIdentityCore<User>();
             var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
+            identityBuilder.AddRoles<IdentityRole>();
+            identityBuilder.AddClaimsPrincipalFactory<UserClaimsPrincipalFactory<User, IdentityRole>>();
             identityBuilder.AddEntityFrameworkStores<CoursesContext>();
             identityBuilder.AddSignInManager<SignInManager<User>>();
             services.TryAddSingleton<ISystemClock, SystemClock>();

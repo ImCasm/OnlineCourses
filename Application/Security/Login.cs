@@ -8,7 +8,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Application.Auth
+namespace Application.Security
 {
     public class Login
     {

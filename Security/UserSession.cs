@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Http;
 using System.Linq;
 using System.Security.Claims;
 
-namespace Security
+namespace Auth
 {
     public class UserSession : IUserSession
     {
