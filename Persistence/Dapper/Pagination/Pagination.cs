@@ -4,8 +4,8 @@ namespace Persistence.Dapper.Pagination
 {
     public class Pagination
     {
-        public IList<IDictionary<string, object>> recordsList { get; set; }
-        public int totalRecords { get; set; }
-        public int pagNum { get; set; }
+        public IList<IDictionary<string, object>> RecordsList { get; set; }
+        public int TotalRecords { get; set; }
+        public int PagNum { get; set; }
     }
 }

@@ -13,13 +13,13 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<Unit>> Insert(Create.Execute comment)
         {
-            return await _mediator.Send(comment);
+            return await Mediator.Send(comment);
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<Unit>> Delete(Guid id)
         {
-            return await _mediator.Send(new Delete.Execute { CommentId = id });
+            return await Mediator.Send(new Delete.Execute { CommentId = id });
         }
     }
 }

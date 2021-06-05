@@ -2,6 +2,7 @@
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,15 +32,15 @@ namespace Application.Security
 
             public async Task<AuthUserData> Handle(Current request, CancellationToken cancellationToken)
             {
-
                 var user = await _userManager.FindByNameAsync(_userSession.GetUserSession());
+                var roles = (await _userManager.GetRolesAsync(user)).ToList();
 
                 return new AuthUserData
                 {
                     FullName = user.FullName,
                     Username = user.UserName,
                     Email = user.Email,
-                    Token = _jwtGenerator.CreateToken(user),
+                    Token = _jwtGenerator.CreateToken(user, roles),
                     Image = null
                 };
             }

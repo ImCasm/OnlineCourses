@@ -4,6 +4,7 @@ using Domain;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
@@ -51,7 +52,9 @@ namespace Application.Security
                     throw new ExceptionHandler(HttpStatusCode.Unauthorized);
                 }
 
-                var successLogIn = await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
+                var roles = (await _userManager.GetRolesAsync(user)).ToList();
+                var successLogIn = 
+                    await _signInManager.CheckPasswordSignInAsync(user, request.Password, false);
 
                 if (successLogIn.Succeeded)
                 {
@@ -59,7 +62,7 @@ namespace Application.Security
                         FullName = user.FullName,
                         Email = user.Email,
                         Username = user.UserName,
-                        Token = _jwtGenerator.CreateToken(user),
+                        Token = _jwtGenerator.CreateToken(user, roles),
                         Image = null
                     };
                 }

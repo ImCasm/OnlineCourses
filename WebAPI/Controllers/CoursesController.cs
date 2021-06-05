@@ -16,38 +16,38 @@ namespace WebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<List<CourseDTO>>> Get()
         {
-            return await _mediator.Send(new Query.CoursesList());
+            return await Mediator.Send(new Query.CoursesList());
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<CourseDTO>> GetById(Guid id)
         {
-            return await _mediator.Send(new QueryById.CourseById { Id = id});
+            return await Mediator.Send(new QueryById.CourseById { Id = id});
         }
 
         [HttpPost]
         public async Task<ActionResult<Unit>> Create(Create.New data)
         {
-            return await _mediator.Send(data);
+            return await Mediator.Send(data);
         }
 
         [HttpPost("report")]
         public async Task<ActionResult<Pagination>> Report(CoursePagination.Execute data)
         {
-            return await _mediator.Send(data);
+            return await Mediator.Send(data);
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult<Unit>> Edit(Guid id, EditCourse.Edit data)
         {
             data.CourseId = id;
-            return await _mediator.Send(data);
+            return await Mediator.Send(data);
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<Unit>> Delete(Guid id)
         {
-            return await _mediator.Send(new Delete.DeleteCourse { CourseId = id});
+            return await Mediator.Send(new Delete.DeleteCourse { CourseId = id});
         }
     }
 }

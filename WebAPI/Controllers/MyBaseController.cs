@@ -9,9 +9,9 @@ namespace WebAPI.Controllers
     public class MyBaseController : ControllerBase
     {
 
-        private IMediator Mediator;
+        private IMediator _mediator;
 
-        protected IMediator _mediator => 
-            Mediator ?? (Mediator = HttpContext.RequestServices.GetService<IMediator>());      
+        protected IMediator Mediator =>
+            _mediator ??= HttpContext.RequestServices.GetService<IMediator>();
     }
 }

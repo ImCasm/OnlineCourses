@@ -56,7 +56,8 @@ namespace Application.Security
             public async Task<AuthUserData> Handle(SignUp request, CancellationToken cancellationToken)
             {
                 var validUser = await _coursesContext.Users
-                    .Where(user => user.Email == request.Email || user.UserName == request.Username).AnyAsync();
+                    .Where(user => user.Email == request.Email || user.UserName == request.Username)
+                    .AnyAsync();
 
                 if (validUser)
                 {
@@ -81,7 +82,7 @@ namespace Application.Security
                     {
                         FullName = user.FullName,
                         Email = user.Email,
-                        Token = _jwtGenerator.CreateToken(user),
+                        Token = _jwtGenerator.CreateToken(user, null),
                         Username = user.UserName
                     };
                 }

@@ -1,11 +1,10 @@
 ﻿using Application.Teachers.Commands;
 using MediatR;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Persistence.Dapper.Teacher;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -14,35 +13,36 @@ namespace WebAPI.Controllers
     [ApiController]
     public class TeacherController : MyBaseController
     {
+        [Authorize(Roles = Domain.Roles.ADMIN)]
         [HttpGet]
         public async Task<ActionResult<List<Teacher>>> Get()
         {
-            return await _mediator.Send(new Query.TeachersList());
+            return await Mediator.Send(new Query.TeachersList());
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Teacher>> GetById(Guid id)
         {
-            return await _mediator.Send(new QueryById.Execute { TeacherId = id });
+            return await Mediator.Send(new QueryById.Execute { TeacherId = id });
         }
 
         [HttpPost]
         public async Task<ActionResult<Unit>> Insert(Create.Execute teacher)
         {
-            return await _mediator.Send(teacher);
+            return await Mediator.Send(teacher);
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult<Unit>> Update(Guid id, Edit.Execute teacher)
         {
             teacher.TeacherId = id;
-            return await _mediator.Send(teacher);
+            return await Mediator.Send(teacher);
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<Unit>> Delete(Guid id)
         {
-            return await _mediator.Send(new Delete.Execute { TeacherId = id });
+            return await Mediator.Send(new Delete.Execute { TeacherId = id });
         }
     }
 }

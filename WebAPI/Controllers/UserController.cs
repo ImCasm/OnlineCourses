@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Application.Security;
+using Application.Security.AppUser.Commands;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,19 +18,25 @@ namespace WebAPI.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<AuthUserData>> Login(Login.Run loginParams)
         {
-            return await _mediator.Send(loginParams);
+            return await Mediator.Send(loginParams);
         }
 
         [HttpPost("signup")]
         public async Task<ActionResult<AuthUserData>> Signup(Register.SignUp registerParams)
         {
-            return await _mediator.Send(registerParams);
+            return await Mediator.Send(registerParams);
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<AuthUserData>> Update(UpdateUser.Execute user)
+        {
+            return await Mediator.Send(user);
         }
 
         [HttpGet]
         public async Task<ActionResult<AuthUserData>> GetUser()
         {
-            return await _mediator.Send(new CurrentUser.Current());
+            return await Mediator.Send(new CurrentUser.Current());
         }
     }
 }

@@ -28,12 +28,10 @@ namespace Application.Security.Roles.Commands
         public class Handler : IRequestHandler<Execute, List<string>>
         {
             private readonly UserManager<User> _userManager;
-            private readonly RoleManager<IdentityRole> _roleManager;
 
-            public Handler(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+            public Handler(UserManager<User> userManager)
             {
                 _userManager = userManager;
-                _roleManager = roleManager;
             }
 
             public async Task<List<string>> Handle(Execute request, CancellationToken cancellationToken)

@@ -46,10 +46,10 @@ namespace Persistence.Dapper.Pagination
 
                 var result = await connection.QueryAsync(storeProcedure, parameters,
                     commandType: CommandType.StoredProcedure);
-                pagination.recordsList = result.Select(r => (IDictionary<string, object>) r).ToList();
+                pagination.RecordsList = result.Select(r => (IDictionary<string, object>) r).ToList();
 
-                pagination.totalRecords = parameters.Get<int>("@TotalRecords");
-                pagination.pagNum = parameters.Get<int>("@TotalPages");
+                pagination.TotalRecords = parameters.Get<int>("@TotalRecords");
+                pagination.PagNum = parameters.Get<int>("@TotalPages");
             }
             catch (Exception e)
             {
